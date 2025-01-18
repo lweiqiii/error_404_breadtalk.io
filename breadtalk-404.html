@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | BreadTalk</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #ffefba;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: #5e3e1f;
+            font-size: 25px;
+            text-align: center;
+            padding: 50px 30px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #fd934c;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: #ffefba;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Ensure the header stays on top */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo and character image styling */
+        .header img {
+            max-height: 100%; /* Ensure images don't overflow */
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav li {
+            display: inline-block;
+        }
+
+        nav a {
+            color: #5e3e1f;
+            font-size: 18px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #fd934c;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff5e6;
+            color: #5e3e1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+            cursor: url('http://www.breadtalk.com.sg/wp-content/uploads/2023/04/floss-bread-favicon-2.webp'), auto;
+            padding-top: 120px; /* Prevent content from being hidden behind the fixed header */
+        }
+
+        /* Main Error Container */
+        .error-container {
+            background: #fff8e1;
+            padding: 80px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 990px;
+            text-align: center;
+        }
+
+        /* Error Title */
+        .error-title {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #d67a3d;
+            margin-bottom: 20px;
+        }
+
+        /* Error Message */
+        .error-message {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #5e3e1f;
+            margin-bottom: 20px;
+        }
+
+        /* Extra Text */
+        .error-text {
+            font-size: 1.2rem;
+            color: #a14e26;
+            margin-bottom: 30px;
+        }
+
+        /* Interactive Bread Animation */
+        .bread-animation {
+            position: relative;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .bread {
+            width: 120px;
+            height: 60px;
+            background-color: #d67a3d;
+            border-radius: 50px 50px 15px 15px;
+            animation: breadRising 3s ease-out infinite;
+        }
+
+        .steam {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: #d1b094;
+            border-radius: 50%;
+            animation: steamAnimation 2s linear infinite;
+            opacity: 0;
+        }
+
+        .steam:nth-child(1) {
+            left: 30%;
+            animation-delay: 0s;
+        }
+
+        .steam:nth-child(2) {
+            left: 50%;
+            animation-delay: 1s;
+        }
+
+        .steam:nth-child(3) {
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        /* Bread Rising Animation */
+        @keyframes breadRising {
+            0% {
+                transform: scaleY(1);
+            }
+            50% {
+                transform: scaleY(1.2);
+            }
+            100% {
+                transform: scaleY(1);
+            }
+        }
+
+        /* Steam Animation */
+        @keyframes steamAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: #d67a3d;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .cta-btn:hover {
+            background-color: #b65a2f;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .error-title {
+                font-size: 5rem;
+            }
+
+            .error-message {
+                font-size: 1.6rem;
+            }
+
+            .error-text {
+                font-size: 1rem;
+            }
+
+            .cta-btn {
+                padding: 10px 20px;
+                width: 80%;
+                margin: 10px 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <!-- Logo and Navigation -->
+         <div>
+            <img src="BreadTalk-logo!.jpg" height="80" alt="BreadTalk Logo">
+            <img src="breadtalk character.jpeg" style="margin-left:-10px;"height="80" alt="BreadTalk Character">
+         </div>
+
+        <nav>
+            <ul>
+                <li><a href="https://www.breadtalk.com.sg/">Home</a></li>
+                <li><a href="https://www.breadtalk.com.sg/our-story/">About Us</a></li>
+                <li><a href="https://www.breadtalk.com.sg/promotions/">Products</a></li>
+                <li><a href="https://www.breadtalk.com.sg/contact-us/">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- 404 Error Page Container -->
+    <div class="error-container">
+        <h1 class="error-title">404</h1>
+        <h2 class="error-message">Oops! Looks like this page is out of dough...</h2>
+        <p class="error-text">But don’t worry, we’ve got plenty of freshly baked content to explore!</p>
+
+        <!-- Interactive Animation of Bread Rising -->
+        <div class="bread-animation">
+            <div class="bread"></div>
+            <div class="steam"></div>
+        </div>
+
+        <!-- Call to Actions -->
+        <div class="cta-buttons">
+            <a href="https://www.breadtalk.com.sg/" class="cta-btn">Back to Home</a>
+            <a href="https://www.breadtalk.com.sg/promotions/" class="cta-btn">Explore Our Menu</a>
+        </div>
+    </div>
+</body>
+</html>
+   
